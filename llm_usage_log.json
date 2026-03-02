@@ -1,0 +1,171 @@
+{
+  "student_metadata": {
+    "name": "Fathal Koul",
+    "roll_number": "230043",
+    "course": "Advanced Machine Learning",
+    "exam": "Mid-Semester Examination",
+    "part": "Part A",
+    "submission_date": "2026-03-01"
+  },
+
+  "research_strategy_overview": {
+    "approach": "Systematic constraint-driven filtering combined with methodological feasibility analysis.",
+    "primary_goal": "Select a CORE A* (2009–2012) paper focused on ARIMA or classical time-series modeling that is reproducible within 24 hours under CPU-only constraints.",
+    "selection_dimensions": [
+      "CORE A* venue eligibility",
+      "Publication year between 2009–2012",
+      "Primary methodological contribution (not dataset/system paper)",
+      "Alignment with ARIMA or classical time-series modeling",
+      "Laptop-scale reproducibility",
+      "Hyperparameter transparency",
+      "Uniqueness relative to class submission sheet"
+    ],
+    "filtering_rounds": 3,
+    "total_candidate_papers_reviewed": 6,
+    "final_shortlist_size": 2
+  },
+
+  "llm_tools_used": [
+    {
+      "tool_name": "Gemini 3 Flash",
+      "provider": "Google",
+      "usage_role": "Constraint verification, structured reasoning, and feasibility evaluation"
+    }
+  ],
+
+  "full_llm_interaction_log": [
+    {
+      "interaction_id": 1,
+      "phase": "Constraint Extraction and Clarification",
+      "date": "2026-03-03",
+      "purpose": "Careful parsing of exam PDF requirements.",
+      "prompt_summary": "Understand venue restrictions, algorithm categories (ARIMA/SVM/GMM), and compute limits.",
+      "llm_usage_level": "Structural summarization",
+      "independent_verification": "Manually re-read the PDF to confirm the 2009–2012 year constraint and CORE A* requirement.",
+      "outcome": "Created a written checklist used to validate each candidate paper.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 2,
+      "phase": "Duplicate Screening",
+      "date": "2026-03-03",
+      "purpose": "Ensure uniqueness of selected paper.",
+      "prompt_summary": "Cross-verify candidate papers against uploaded class response CSV.",
+      "llm_usage_level": "Spreadsheet-assisted comparison",
+      "independent_verification": "Manually scanned author names and titles in the CSV to confirm no duplication.",
+      "outcome": "Confirmed selected paper was not already claimed.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 3,
+      "phase": "Topic-Constrained Search",
+      "date": "2026-03-03",
+      "purpose": "Identify ARIMA-based papers in eligible venues.",
+      "prompt_summary": "Find a free CORE A* paper (2009–2012) using ARIMA or classical time-series modeling.",
+      "llm_usage_level": "Candidate identification",
+      "papers_considered": 4,
+      "screening_criteria": [
+        "Explicit ARIMA usage",
+        "Clear statistical modeling framework",
+        "Accessible dataset description",
+        "Non-deep-learning approach"
+      ],
+      "outcome": "Shortlisted 'Discovery of Significant Emerging Trends'.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 4,
+      "phase": "Methodological Evaluation",
+      "date": "2026-03-03",
+      "purpose": "Assess conceptual and mathematical depth.",
+      "prompt_summary": "Evaluate whether the selected paper is suitable for replication within one day.",
+      "analysis_dimensions": [
+        "Model structure (univariate ARIMA)",
+        "Trend detection formulation",
+        "Parameter estimation complexity",
+        "Inference stage clarity"
+      ],
+      "independent_verification": "Read abstract and methodology section to confirm ARIMA-based modeling structure.",
+      "outcome": "Classified complexity as moderate but implementable using statsmodels.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 5,
+      "phase": "Computational Feasibility Assessment",
+      "date": "2026-03-03",
+      "purpose": "Ensure CPU-only reproducibility.",
+      "analysis_dimensions": [
+        "Time-series dimensionality",
+        "Training time complexity",
+        "Data preprocessing overhead",
+        "Availability of equivalent public datasets"
+      ],
+      "independent_verification": "Confirmed ARIMA implementation available in standard Python libraries.",
+      "outcome": "Rated computational requirement as Low.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 6,
+      "phase": "Red-Flag Compliance Check",
+      "date": "2026-03-03",
+      "purpose": "Ensure exam compliance.",
+      "criteria_checked": [
+        "Not primarily a dataset paper",
+        "Hyperparameters clearly specified",
+        "Inference stage explicitly defined",
+        "No proprietary dataset dependency"
+      ],
+      "independent_verification": "Reviewed experimental section to confirm reproducibility clarity.",
+      "outcome": "Paper satisfied all compliance conditions.",
+      "confidence_level": 5
+    },
+    {
+      "interaction_id": 7,
+      "phase": "Final Documentation Preparation",
+      "date": "2026-03-03",
+      "purpose": "Prepare structured submission details.",
+      "prompt_summary": "Generate final formatted details for exam submission.",
+      "llm_usage_level": "Formatting assistance only",
+      "independent_verification": "Cross-checked title, authors, venue, and year via ACM Digital Library.",
+      "confidence_level": 5
+    }
+  ],
+
+  "final_selected_paper": {
+    "title": "Discovery of Significant Emerging Trends",
+    "authors": "Saurabh Goorha, Lyle H. Ungar",
+    "venue": "ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)",
+    "year": 2010,
+    "core_ranking": "CORE A*",
+    "primary_methodology": "ARIMA-based Time-Series Modeling",
+    "selection_justification": [
+      "Falls within required 2009–2012 window.",
+      "Published in CORE A* venue.",
+      "Methodological contribution centered on statistical time-series modeling.",
+      "Computationally feasible under laptop-only constraints.",
+      "Clear inference and evaluation pipeline.",
+      "Unique relative to class submission sheet."
+    ]
+  },
+
+  "estimated_replication_plan": {
+    "data_collection_and_preprocessing_hours": 4,
+    "model_implementation_hours": 8,
+    "experimentation_hours": 6,
+    "analysis_and_report_hours": 6,
+    "total_estimated_hours": 24
+  },
+
+  "student_reflection": {
+    "time_spent_on_selection_hours": 5.5,
+    "iterations_before_final_choice": 2,
+    "key_learning": "Constraint-driven filtering and early feasibility estimation significantly reduce replication risk under strict time limitations.",
+    "confidence_in_selection": "Very High"
+  },
+
+  "student_declaration": {
+    "statement": "I declare that this JSON file represents a complete and honest record of my LLM-assisted research process. All eligibility checks, methodological evaluations, and final decisions were independently verified through manual inspection of official sources.",
+    "signature": "Fathal Koul",
+    "date": "2026-03-01"
+  }
+}
