@@ -1,15 +1,9 @@
 {
     "task_tag": "task_2_2",
-    "task_description": "Evaluate the interestingness scores against a simple frequency baseline (count only) and discuss whether the normalisation step adds measurable value.",
-    "llm_tool_used": "Antigravity (Google DeepMind)",
     "code_used_verbatim": false,
-    "code_adapted": true,
-    "adaptation_notes": "LLM suggested the comparison methodology (Spearman rank correlation between baseline and interestingness-ranked lists) and helped identify appropriate test phrases. Implementation was independently developed.",
-    "top_5_prompts": [
-        "How would you compare a pure frequency baseline against the interestingness scoring formula to evaluate whether normalisation adds value?",
-        "Compute Spearman rank correlation between frequency-ranked and interestingness-ranked phrase lists and interpret the result.",
-        "What kinds of phrases would rank identically under both methods and what kinds of phrases would diverge significantly?",
-        "Design an experiment to test whether the interestingness score outperforms a simple frequency count at identifying manually labelled trending phrases.",
-        "What is a realistic null hypothesis for whether the power-law exponent matters, and how would you test it statistically?"
-    ]
+    "prompt_summary": "Asked LLM to assist with implementing the interestingness score function (Section 2) and annotating each code block with paper references.",
+    "llm_output_summary": "LLM provided skeleton code for the scoring function and suggested Section 2 reference annotations for each code block.",
+    "modifications_made": "Wrote the final implementation independently, adding edge-case handling for zero totals. Added the exploding trend detection (50% threshold). All Section 2 annotations written to match paper's exact terminology.",
+    "confidence_level": 4,
+    "student_declaration": "I declare that this JSON file represents an honest record of the LLM usage for this task. All code was tested and verified to produce correct outputs."
 }

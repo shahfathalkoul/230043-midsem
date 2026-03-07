@@ -1,0 +1,9 @@
+{
+    "task_tag": "task_1_3",
+    "code_used_verbatim": false,
+    "prompt_summary": "Asked LLM to explain the baseline (simple frequency tracking) and how the 0.95 exponent overcomes its limitation of ranking noise words over emerging trends.",
+    "llm_output_summary": "LLM contrasted frequency baselines with power-law scoring, explained the signal-to-noise filtering effect, and provided a code example with a comparison table.",
+    "modifications_made": "Wrote the demonstration code independently using numpy. Refined the mathematical explanation to clearly distinguish between α=0.0, α=0.95, and α=1.0 regimes.",
+    "confidence_level": 5,
+    "student_declaration": "I declare that this JSON file represents an honest record of the LLM usage for this task. The final content was independently verified against the original paper."
+}

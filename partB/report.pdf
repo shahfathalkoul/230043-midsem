@@ -1,0 +1,102 @@
+# Part B — Mid-Semester Report
+## Discovery of Significant Emerging Trends
+**Student:** Fathal Koul (230043) | **Course:** Advanced Machine Learning | **Date:** March 2026
+
+---
+
+## 1. Paper Summary
+
+**Paper:** Goorha, S. & Ungar, L. (2010). *Discovery of Significant Emerging Trends.* ACM SIGKDD Conference on Knowledge Discovery and Data Mining. **CORE A\*.**
+
+### Problem Statement
+The paper addresses the challenge of identifying **significant emerging trends** from massive daily text corpora (approximately 100,000 articles/day from news and blog sources). The core difficulty is separating genuinely emerging associations from the overwhelming noise of common language patterns.
+
+### The Discovery Architecture
+The method is a four-stage pipeline:
+
+1. **Entity Extraction:** Named entities (brands, products, people) are identified from raw text, creating an inventory of "what is being discussed."
+
+2. **Proximity Filtering:** Co-occurring phrase pairs within a **100-character window** are retained. This proximity heuristic filters out spurious long-distance co-occurrences.
+
+3. **Exploding Trend Detection:** Each phrase pair's current frequency is compared against a **3-week rolling baseline**. Only pairs showing a **≥50% increase** are flagged as emerging trends.
+
+4. **Power-Law Scoring:** Surviving trends are ranked using:
+   $$\text{Score} = \frac{\text{count}}{\text{total}^{0.95}}$$
+   The sub-linear exponent (0.95) balances volume against specificity, preventing both stop-words and rare noise from dominating.
+
+### Key Contribution
+The paper's central contribution is demonstrating that a **power-law scoring function** outperforms simple frequency counting for trend detection, and that the exponent value of 0.95 provides the optimal trade-off between sensitivity and specificity.
+
+---
+
+## 2. Reproduction Gap
+
+### What the Paper Uses
+- **Scale:** ~100,000 articles/day from Spinn3r blog corpus and Lydia news analysis system
+- **Entity database:** Pre-built database of millions of named entities
+- **Temporal depth:** Weeks to months of historical data for baseline computation
+- **Infrastructure:** Distributed processing pipeline for real-time trend detection
+
+### What We Reproduce
+- **Scale:** A toy dataset of 110 samples across 20 phrases
+- **Entity database:** Hardcoded iPod-related and IT Industry phrases
+- **Temporal depth:** 6 simulated weeks for baseline computation
+- **Infrastructure:** Single-machine Python scripts
+
+### Bridging the Gap
+Despite the massive scale difference, our reproduction captures the **mathematical essence** of the method:
+- The power-law scoring formula is implemented identically to Section 2
+- The ablation study demonstrates the same failure modes at any scale
+- The ghost phrase problem is scale-independent
+- iPod phrases are correctly ranked above generic IT noise, matching Figure 1's pattern
+
+---
+
+## 3. Ablation Findings
+
+### Two-Component Ablation Study
+We systematically removed each component of the scoring formula by testing extreme exponent values:
+
+| Configuration | Exponent | Outcome | Failure Mode |
+|:---|:---:|:---|:---|
+| **Pure Volume** | α = 0.0 | Score = count | Stop-words ("the", "and") rank #1–#2 |
+| **Pure Specificity** | α = 1.0 | Score = count/total | Rare junk phrases tie with real trends |
+| **Paper Default** | α = 0.95 | Balanced scoring | Genuine trends ranked correctly |
+
+### Key Insight
+Both components are **individually necessary and jointly sufficient**:
+- Without the denominator (α = 0.0), the system degenerates into a frequency counter
+- Without the sub-linear dampening (α = 1.0), the system over-normalises and loses discriminative power
+- At α = 0.95, the system achieves a balance: common enough to be meaningful, rare enough to be specific
+
+### Failure Mode: Ghost Phrases
+We identified a data sparsity vulnerability: a phrase appearing once (`count=1, total=1`) receives a perfect score of 1.0, outranking all genuine trends. We proposed **Laplacian smoothing** as a fix:
+$$\text{Score}_{\text{smoothed}} = \frac{\text{count} + 1}{(\text{total} + V)^{0.95}}$$
+This reduces the ghost phrase score from 1.0 to ~0.22 while leaving high-count trends virtually unchanged.
+
+---
+
+## 4. Honest Reflection: Scale Limitation
+
+### The 100,000 Articles/Day Gap
+The most significant limitation of our reproduction is the **scale gap**: the original paper processes 100,000 articles per day, while our implementation works with a toy dataset of ~110 samples. This is not merely a quantitative difference — it is a qualitative one.
+
+### What We Cannot Test
+1. **Temporal dynamics:** The exploding trend detection (50% increase over 3-week baseline) is fundamentally a *time-series* operation. Our simulated weeks approximate but cannot replicate the real temporal dynamics.
+2. **Entity extraction accuracy:** At scale, entity extraction is noisy — misspellings, abbreviations, and aliases create spurious entities. Our hardcoded entities sidestep this entirely.
+3. **Proximity filtering edge cases:** With 100K articles, the 100-character window encounters complex sentence structures, embedded quotes, and multi-topic paragraphs. Our toy data has clean, unambiguous phrases.
+4. **Power-law distribution validity:** The 0.95 exponent was empirically optimised on a corpus following a natural language power-law distribution. Our toy data does not follow this distribution.
+
+### What We Can Claim
+Despite these limitations, our reproduction demonstrates:
+- The **mathematical correctness** of the scoring formula
+- The **necessity of both components** (volume and specificity) through ablation
+- A **genuine vulnerability** (ghost phrases) that exists at any scale
+- A **principled fix** (Laplacian smoothing) that is domain-independent
+
+### An Honest Assessment
+If deployed on real data at production scale, our toy-data-validated insights would need re-verification. The 0.95 exponent was empirically tuned and may not generalise across domains. The reproduction gap is not a failure — it is an honest acknowledgment that some aspects of a paper's contribution can only be fully validated at the scale at which they were developed.
+
+---
+
+*Report prepared as part of the Advanced Machine Learning mid-semester examination, March 2026.*

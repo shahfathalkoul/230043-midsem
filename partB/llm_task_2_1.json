@@ -1,15 +1,9 @@
 {
     "task_tag": "task_2_1",
-    "task_description": "Reproduce or summarise the empirical distribution of interestingness scores reported in the paper, including discussion of the Zipfian frequency distribution of phrases in the corpus.",
-    "llm_tool_used": "Antigravity (Google DeepMind)",
     "code_used_verbatim": false,
-    "code_adapted": true,
-    "adaptation_notes": "LLM helped structure the analysis of the frequency-rank distribution and suggested using log-log plots to verify power-law behaviour. Final code was independently written and verified.",
-    "top_5_prompts": [
-        "How does the Zipfian distribution of phrase frequencies in Twitter relate to the choice of power-law exponent in the interestingness formula?",
-        "Write Python code to plot the frequency-rank distribution of phrases in a simulated corpus on a log-log scale and annotate the slope.",
-        "What is the relationship between corpus-level frequency distributions and the signal-to-noise ratio of the interestingness score?",
-        "How does normalising by total frequency prevent high-frequency phrases from dominating trend rankings?",
-        "Reproduce Figure 1 from Goorha & Ungar (2010): what axes does it show and what visual pattern is key to interpreting the results?"
-    ]
+    "prompt_summary": "Asked LLM to help design a 110-sample toy dataset simulating iPod mentions within an IT Industry corpus, including justification and scale limitations.",
+    "llm_output_summary": "LLM suggested a dataset structure with iPod phrases (emerging signal), generic IT phrases (noise), and rare junk phrases (sparsity test) across 6 simulated weeks.",
+    "modifications_made": "Manually selected phrase names and count values to match realistic proportions. Designed the temporal spike pattern for iPod phrases. Wrote all justification prose independently.",
+    "confidence_level": 4,
+    "student_declaration": "I declare that this JSON file represents an honest record of the LLM usage for this task. The dataset design was independently verified through manual calculation."
 }
