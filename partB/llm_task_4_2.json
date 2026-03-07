@@ -1,0 +1,15 @@
+{
+    "task_tag": "task_4_2",
+    "task_description": "Propose two concrete improvements to the Discovery pipeline: (1) replacing hard proximity threshold with a soft semantic similarity score, and (2) replacing the fixed 0.95 exponent with a corpus-adaptive learned exponent.",
+    "llm_tool_used": "Antigravity (Google DeepMind)",
+    "code_used_verbatim": false,
+    "code_adapted": true,
+    "adaptation_notes": "LLM suggested both improvement directions and sketched proof-of-concept implementations. The cosine-similarity proximity filter was implemented as a stub using sentence-transformers, and the corpus-adaptive exponent was framed as a grid-search with Spearman correlation as the objective, both independently adapted.",
+    "top_5_prompts": [
+        "Propose a replacement for the hard 100-character proximity threshold that uses semantic similarity (e.g., cosine similarity of sentence embeddings) to retain only semantically related entity pairs.",
+        "How would you learn the optimal power-law exponent alpha from data rather than fixing it at 0.95, and what objective function would you optimise?",
+        "Implement a stub function proximity_filter_semantic(tweet, entity_pairs, model, threshold=0.7) that uses sentence-transformers to score entity pair relevance.",
+        "Design a cross-validation scheme to select the best alpha from {0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0} using human-labelled trend relevance as ground truth.",
+        "What would a Bayesian version of the interestingness formula look like, and how would it naturally handle data sparsity without requiring Laplacian smoothing as a post-hoc fix?"
+    ]
+}

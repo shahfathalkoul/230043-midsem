@@ -1,0 +1,15 @@
+{
+    "task_tag": "task_2_1",
+    "task_description": "Reproduce or summarise the empirical distribution of interestingness scores reported in the paper, including discussion of the Zipfian frequency distribution of phrases in the corpus.",
+    "llm_tool_used": "Antigravity (Google DeepMind)",
+    "code_used_verbatim": false,
+    "code_adapted": true,
+    "adaptation_notes": "LLM helped structure the analysis of the frequency-rank distribution and suggested using log-log plots to verify power-law behaviour. Final code was independently written and verified.",
+    "top_5_prompts": [
+        "How does the Zipfian distribution of phrase frequencies in Twitter relate to the choice of power-law exponent in the interestingness formula?",
+        "Write Python code to plot the frequency-rank distribution of phrases in a simulated corpus on a log-log scale and annotate the slope.",
+        "What is the relationship between corpus-level frequency distributions and the signal-to-noise ratio of the interestingness score?",
+        "How does normalising by total frequency prevent high-frequency phrases from dominating trend rankings?",
+        "Reproduce Figure 1 from Goorha & Ungar (2010): what axes does it show and what visual pattern is key to interpreting the results?"
+    ]
+}

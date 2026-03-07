@@ -1,0 +1,15 @@
+{
+    "task_tag": "task_3_1",
+    "task_description": "Implement the full 4-step Discovery pipeline end-to-end in Python and apply it to a small real or simulated tweet dataset to produce a ranked list of emerging trends.",
+    "llm_tool_used": "Antigravity (Google DeepMind)",
+    "code_used_verbatim": false,
+    "code_adapted": true,
+    "adaptation_notes": "LLM provided pseudocode for the pipeline stages. The actual tokenisation, window-based co-occurrence computation, and trend-detection logic were implemented independently. Simulated data was used in place of real tweets.",
+    "top_5_prompts": [
+        "Write a Python class that implements the four-step Discovery pipeline: entity extraction, proximity filtering, exploding trend detection, and power-law scoring.",
+        "How would you implement the 3-week rolling baseline for trend detection efficiently in pandas without iterating row by row?",
+        "What data structure is most appropriate for storing entity-pair co-occurrence counts efficiently at scale?",
+        "Implement the proximity filter: given a tokenised tweet, return all phrase pairs whose character-distance is less than a threshold T.",
+        "How would you define 'entity' in the context of the Discovery pipeline when processing raw tweets that lack named-entity annotations?"
+    ]
+}

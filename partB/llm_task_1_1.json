@@ -1,0 +1,15 @@
+{
+    "task_tag": "task_1_1",
+    "task_description": "Describe the Discovery architecture from Goorha & Ungar (2010) using a Step 1-4 format covering Entity Extraction, Proximity Filtering, Exploding Trend Detection, and Power-Law Scoring.",
+    "llm_tool_used": "Antigravity (Google DeepMind)",
+    "code_used_verbatim": false,
+    "code_adapted": true,
+    "adaptation_notes": "All markdown descriptions were written from scratch guided by LLM prompts. No code cells in this notebook; content is purely descriptive markdown.",
+    "top_5_prompts": [
+        "Write a markdown description of the Discovery architecture from Goorha & Ungar (2010) in a Step 1, Step 2 format covering all four stages of the pipeline.",
+        "Explain Entity Extraction in the context of the Discovery system: what n-grams are used and why stop-words are discarded.",
+        "Describe the Proximity Filtering step with the <100 characters threshold and explain why character distance is used as a proxy for semantic relatedness.",
+        "Explain the Exploding Trend Detection step: what does a 50% increase over a 3-week baseline mean and why is this threshold chosen?",
+        "Describe the Power-Law Scoring step with exponent 0.95 and explain the intuition of sub-linear normalisation for signal-to-noise improvement."
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "task_tag": "task_4_3",
+    "task_description": "Reflect honestly on the use of LLM tools throughout the assignment: what the LLM contributed, where human judgement was essential, and how the final outputs were verified against the original paper.",
+    "llm_tool_used": "Antigravity (Google DeepMind)",
+    "code_used_verbatim": false,
+    "code_adapted": false,
+    "adaptation_notes": "This reflective task required no code. The LLM helped draft the structure of the honest reflection but all judgements about what constitutes LLM contribution vs. independent work are the student's own.",
+    "top_5_prompts": [
+        "Write an honest reflection on how LLM tools were used during this assignment, distinguishing between scaffolding, code generation, and critical analysis.",
+        "What parts of the Discovery paper reproduction required independent judgement that could not be delegated to an LLM?",
+        "How did you verify that the LLM-generated descriptions of the paper were faithful to the original text and not hallucinated?",
+        "Where did the LLM make errors or produce misleading output during this assignment, and how were those corrected?",
+        "What is the epistemic status of an LLM-assisted academic analysis and how should it be disclosed in a research context?"
+    ]
+}

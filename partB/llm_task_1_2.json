@@ -1,0 +1,15 @@
+{
+    "task_tag": "task_1_2",
+    "task_description": "List and explain the three key assumptions underlying the Discovery method: proximity implies relevance, trend persistence beyond one-day wonders, and the 0.95 exponent optimality.",
+    "llm_tool_used": "Antigravity (Google DeepMind)",
+    "code_used_verbatim": false,
+    "code_adapted": false,
+    "adaptation_notes": "No code in this notebook. All assumption descriptions and their implications were LLM-drafted, then reviewed for alignment with Section 2 of the paper.",
+    "top_5_prompts": [
+        "List the three key assumptions of the Goorha & Ungar Discovery method and explain each with its design implication.",
+        "Why does the Discovery system assume that proximity within 100 characters implies semantic relevance between two phrases?",
+        "Explain the assumption that genuine trends must persist beyond one-day wonders and how the 3-week baseline enforces this.",
+        "Why is the 0.95 exponent described as the best signal-to-noise trade-off rather than a theoretically derived value?",
+        "What are the limitations of assuming the 0.95 exponent is optimal when transferring the method to a different corpus?"
+    ]
+}

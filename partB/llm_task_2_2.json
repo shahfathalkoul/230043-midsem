@@ -1,0 +1,15 @@
+{
+    "task_tag": "task_2_2",
+    "task_description": "Evaluate the interestingness scores against a simple frequency baseline (count only) and discuss whether the normalisation step adds measurable value.",
+    "llm_tool_used": "Antigravity (Google DeepMind)",
+    "code_used_verbatim": false,
+    "code_adapted": true,
+    "adaptation_notes": "LLM suggested the comparison methodology (Spearman rank correlation between baseline and interestingness-ranked lists) and helped identify appropriate test phrases. Implementation was independently developed.",
+    "top_5_prompts": [
+        "How would you compare a pure frequency baseline against the interestingness scoring formula to evaluate whether normalisation adds value?",
+        "Compute Spearman rank correlation between frequency-ranked and interestingness-ranked phrase lists and interpret the result.",
+        "What kinds of phrases would rank identically under both methods and what kinds of phrases would diverge significantly?",
+        "Design an experiment to test whether the interestingness score outperforms a simple frequency count at identifying manually labelled trending phrases.",
+        "What is a realistic null hypothesis for whether the power-law exponent matters, and how would you test it statistically?"
+    ]
+}
